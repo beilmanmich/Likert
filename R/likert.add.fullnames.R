@@ -14,6 +14,9 @@ likert_add_fullnames <- function(to, fnames) {
   }
 
   for(x in names(fnames)) {
+  	if(! x %in% names(to)) {
+  		stop("There is no column named ", x)
+  	}
     attr(to[[x]], "fullname") <- fnames[[x]]
   }
   to
